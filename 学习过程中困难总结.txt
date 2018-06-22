@@ -1,0 +1,6 @@
+1.在windows环境下配置运行lisp文件：
+详见：http://www.cnblogs.com/clisp/p/clisp-intall-on-windows-with-notepad-plus-plus.html
+本地帮助文件：经验总结\环境配置
+2.配置Notepad++插件管理器
+详见：http://www.bkill.com/download/162986.html
+本地帮助文件：经验总结\工具配置\Notepad++

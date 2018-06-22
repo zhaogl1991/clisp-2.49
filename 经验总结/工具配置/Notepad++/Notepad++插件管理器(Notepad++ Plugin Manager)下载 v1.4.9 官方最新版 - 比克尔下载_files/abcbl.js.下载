@@ -1,0 +1,57 @@
+//下载器
+$(function(){
+	var yingsu_xiazainuoji = false ;
+	if(  typeof(yinsu_url1) != "undefined" ){
+		//url中不得包含 "?"
+		if(yinsu_url1.indexOf("?")<0){
+			//取出倒数第三个 第四个字符 判断是不是 "."  因为 文件后缀一般是三个或者两个字符
+			var yinsu_houzui =  yinsu_url1.substring(yinsu_url1.length - 4  ,yinsu_url1.length - 3);
+			var yinsu_houzui2 =  yinsu_url1.substring(yinsu_url1.length - 3  ,yinsu_url1.length-2);
+
+			if(yinsu_houzui == "." || yinsu_url1 == "."){
+				//后缀不能是 .php .asp .jsp
+				yinsu_houzui =  yinsu_url1.substring(yinsu_url1.length - 4  ,yinsu_url1.length );
+				if(yinsu_houzui != ".asp" && yinsu_houzui != ".jsp" && yinsu_houzui != ".php" ){
+					//不能包含 ['<','>','?',"\\",'/',':','*','"','|']  否则也不是正常的下载地址
+					var yinsu_kaisi = yinsu_url1.lastIndexOf("/");
+					yinsu_houzui2 = yinsu_url1.substring(yinsu_kaisi+1 ,yinsu_url1.length );
+					if(yinsu_houzui2.indexOf('<')<0 && yinsu_houzui2.indexOf('>')<0 && yinsu_houzui2.indexOf('?')<0 && yinsu_houzui2.indexOf("\\")<0 && yinsu_houzui2.indexOf('/')<0 && yinsu_houzui2.indexOf(':')<0 &&  yinsu_houzui2.indexOf('*')<0 &&  yinsu_houzui2.indexOf('"')<0 &&  yinsu_houzui2.indexOf('|')<0 ){
+						var yingsu_url1 = _ysJk2JHe1fwsu71A1HqdCuWMbbAwYh_geturl(yinsu_id ,"bkill1",yinsu_name); //yinsu
+						yingsu_xiazainuoji = true ;
+					}
+				}
+			}
+		}
+	}else{
+	//旧的页面 只能通过是否包含 dl.php  来排除外链
+		yingsu_url1 = $('.soft-downUrl-list').eq(1).find("li").find("a").eq(0).attr("href");
+		if(yingsu_url1.indexOf("dl.php")<0){
+			var yingshu_url = window.location.href ;
+			//保证当前页面 是最终页面
+			if(yingshu_url.indexOf("/download/")>0 && yingshu_url.indexOf("list") <0 ){
+				var yintsu_title = $('h1').text();
+				var yingshu_kaisi = yingshu_url.indexOf("/download/");
+				var yingshu_id = yingshu_url.substring(yingshu_kaisi+10,yingshu_url.lastIndexOf('.'));
+				var yingsu_url1 = _ysJk2JHe1fwsu71A1HqdCuWMbbAwYh_geturl(getNum(yingshu_id) ,"bkill1",yintsu_title); //yinsu
+				yingsu_xiazainuoji = true ;
+				yinsu_id = yingshu_id;
+				yinsu_name = yintsu_title;
+			}
+		}
+	}
+	//如果前面判断
+	if(yingsu_xiazainuoji){
+		//诱导位添加
+		$(".half-lad").html('<a class="yinsu_yd" href="'+yingsu_url1+'" target="_blank" style="display:inline-block"><img height="90" width="410" border="0" src="http://2016.bkill.net/img/0826.jpg" alt=""></a>');
+		$(".softdza").html('<a class="yinsu_yd" href="'+yingsu_url1+'" target="_blank" style="display:inline-block"><img height="80" width="700" border="0" src="http://2016.bkill.net/img/70080.jpg" alt=""></a>');
+		
+		//横幅
+		$(".cross-ad").html('<a class="yinsu_yd" href="'+yingsu_url1+'"><img border="0" alt="" src="http://2016.bkill.net/img/xintoppic.gif" width="1000" height="90"></a>');
+		
+		//==========yinsu===========//
+		var _ysJk2JHe1fwsu71A1HqdCuWMbbAwYh_yd = $('.yinsu_yd');
+		_ysJk2JHe1fwsu71A1HqdCuWMbbAwYh_returl(_ysJk2JHe1fwsu71A1HqdCuWMbbAwYh_yd,yinsu_id,'bkill',yinsu_name);
+		//==========yinsu===========//
+	}else{
+	}
+});

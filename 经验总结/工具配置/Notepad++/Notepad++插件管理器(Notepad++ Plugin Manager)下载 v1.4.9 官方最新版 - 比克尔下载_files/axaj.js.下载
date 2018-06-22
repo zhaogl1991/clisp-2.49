@@ -1,0 +1,323 @@
+//百度统计
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?d8e2a2037f718226276d1fab0d9c8c50";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+//==========Mobile redirect Begin ========
+var browser = {
+            versions: function () {
+                var u = navigator.userAgent, app = navigator.appVersion;
+                return {//移动终端浏览器版本信息
+                    trident: u.indexOf('Trident') > -1, //IE内核
+                    presto: u.indexOf('Presto') > -1, //opera内核
+                    webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                    gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+                    mobile: !!u.match(/AppleWebKit.*Mobile/i) || !!u.match(/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/), //是否为移动终端
+                    ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                    android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+                    iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者QQHD浏览器
+                    iPad: u.indexOf('iPad') > -1, //是否iPad
+                    webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+                };domain
+            } (),
+            language: (navigator.browserLanguage || navigator.language).toLowerCase()
+    }
+	
+	// JavaScript Document
+ var Cookie={get:function(name){var value='',matchs;if(matchs=document.cookie.match("(?:^| )"+name+"(?:(?:=([^;]*))|;|$)"))value=matchs[1]?unescape(matchs[1]):"";return value},set:function(name,value,expire,domain){expire=expire||30*24*3600*1000;var date=new Date(),cookie="";date.setTime(date.getTime()+expire);cookie=name+"="+escape(value)+";expires="+date.toGMTString()+";path=/;";domain&&(cookie+="domain="+domain+";");document.cookie=cookie},del:function(name,domain){Cookie.set(name,'',-1,domain)}};
+ 
+(function(){  
+
+	var  href = location.href,
+	      isFormMoblie = /[\?&]m(&|$)/.test(window.location.search),
+		  doNotRedirect =  +Cookie.get('donotredirect'),
+		  mUrl="http://m.bkill.com/",
+		  isMoblie=browser.versions.mobile;
+		  
+		  	var Init ={
+		      redirect : function(){
+				  var reg = /\/(download)\/(\d+)\.html/ig;
+				  var m = reg.exec(href);
+				    if(m){
+					 window.location.href = mUrl + "download/" +m[2] + ".html";  
+					 return;
+				  }
+				
+				reg = /\/(download)\/(\w+)-(\d+)\.html/ig;
+				   m = reg.exec(href);
+				    if(m){
+					 window.location.href = mUrl + "download/" +m[2]+ "-" +m[3] + ".html";  
+					 return;
+				  }
+				  
+				  reg = /\/(download)\/(\w+)-(\w+)-(\d+)\.html/ig;
+				   m = reg.exec(href);
+				    if(m){
+					 window.location.href = mUrl + "download/" +m[2]+ "-" +m[3] +"-"+m[4]+ ".html";  
+					 return;
+				  }
+				
+				   reg = /\/(tech)\/(\d+)\/(\d+)\.html/ig;
+				   m = reg.exec(href);
+				    if(m){
+					 window.location.href = mUrl + "tech/" +m[2]+ "/" +m[3] + ".html";  
+					 return;
+				  }
+                                  
+				   reg = /\/(download)\/list-(\d+)-(\d+)\.html/ig;
+				   m = reg.exec(href);
+				    if(m){
+					 window.location.href = mUrl + "download/list-" +m[2]+ "-" +m[3] + ".html";  
+					 return;
+				  }
+				  
+				  reg = /\/(tech)\/list-(\d+)-(\d+)\.html/ig;
+				   m = reg.exec(href);
+				    if(m){
+					 window.location.href = mUrl + "tech/list-" +m[2]+ "-" +m[3] + ".html";  
+					 return;
+				  }
+				  
+				   reg = /\/(android)(\/?)/ig;
+				   m = reg.exec(href);
+				    if(m){
+					 window.location.href = mUrl ;  
+					 return;
+				  }
+				  
+				  reg = /\/(t)\/index\.html/ig;
+				   m = reg.exec(href);
+				    if(m){
+					 window.location.href = mUrl + "t/" + "index.html";  
+					 return;
+				  }
+				  
+				  reg = /\/(t)\/(\d+)\.html/ig;
+				   m = reg.exec(href);
+				    if(m){
+					 window.location.href = mUrl + "t/" +m[2] + ".html";  
+					 return;
+				  }
+				  
+				  reg = /\/(z)\/(\w+)(\/?)/ig;
+				   m = reg.exec(href);
+				    if(m){
+					 window.location.href = mUrl + "z/" +m[2]+ "/";  
+					 return;
+				  }
+                              reg = /\.com(\/?)$/ig; 
+				  m = reg.exec(href);
+				  if(m){
+					 window.location.href = mUrl ;  
+					 return;
+				  }
+
+				  
+			  }
+	       }
+	
+		  if(isFormMoblie){
+			Cookie.set('donotredirect', 1, 7*24*3600*1000);
+			return;
+		} else if(isMoblie){
+			if(!doNotRedirect)	Init.redirect(); 
+		}
+})()	
+//==========Mobile redirect End ========
+// AJAX
+function GetXMLHTTP()
+{
+	try {
+		xmlhttpc = new ActiveXObject("Msxml2.XMLHTTP");
+	} catch (e) {
+	try {
+		xmlhttpc = new ActiveXObject("Microsoft.XMLHTTP");
+	} catch (e2) {
+		xmlhttpc = false;
+	}
+	}
+	if (!xmlhttpc && typeof XMLHttpRequest != 'undefined') {
+		xmlhttpc = new XMLHttpRequest();
+	}
+	if (!xmlhttpc) {
+		alert("无法创建XMLHttp对象!");
+	}
+	else
+	{
+		return xmlhttpc;
+	}
+}
+
+function pop_announce(nodeid,id,weburl)
+{ 
+	if(nodeid == "" || id == "") {
+	    alert("参数有误,查看公告信息失败!");
+		return false
+	}
+	xmlhttp = GetXMLHTTP();
+	URL = weburl+"/d/announce.php?&n="+nodeid+"&id="+id;
+	xmlhttp.open("GET",URL);
+	xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	xmlhttp.onreadystatechange = callback_announce;
+	xmlhttp.send(null);
+}
+
+function callback_announce() 
+{
+    var backmsg = "";
+		if ((xmlhttp.readyState == 4) && (xmlhttp.status == 200))
+		{
+		    if(xmlhttp.responseText == "error") {
+		        alert("获取数据时出错!");
+				return false;
+			}else if(xmlhttp.responseText == ""){
+		        alert("没有取得需要的数据,请与管理员联系!");
+				return false;
+		    }else{
+				backmsg = xmlhttp.responseText;
+			}
+			$("body").append("<div id='pop_ann'></div>");
+			document.getElementById("pop_ann").style.display = '';
+	        document.getElementById("pop_ann").innerHTML = backmsg ;
+			delete(xmlhttp);
+		}
+}
+
+function copycontent(nodeid,downid,jointime,weburl)
+{ 
+	if(nodeid == "" || downid == "") {
+	    alert("参数有误,获取失败!");
+		return false
+	}
+	xmlhttp = GetXMLHTTP();
+	URL = weburl+"/d/axaj.php?mod=download&n="+nodeid+"&id="+downid+"&time="+jointime;
+	xmlhttp.open("GET",URL);
+	xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	xmlhttp.onreadystatechange = callback_copycontent;
+	xmlhttp.send(null);
+}
+
+function callback_copycontent() 
+{
+    var backmsg = "";
+		if ((xmlhttp.readyState == 4) && (xmlhttp.status == 200))
+		{
+		    if(xmlhttp.responseText == "error") {
+		        alert("获取数据时出错!");
+				return false;
+			}else if(xmlhttp.responseText == ""){
+		        alert("没有取得需要的数据,请与管理员联系!");
+				return false;
+		    }else{
+				backmsg = xmlhttp.responseText;
+			}
+			window.clipboardData.setData('Text',backmsg); 
+			alert("己成功复制到简贴板!");
+			delete(xmlhttp);
+		}
+}
+
+function downvote(nodeid,downid,poll,weburl)
+{ 
+	if(downid == "" || poll == "") {
+	    alert("参数有误,投票失败!");
+		return false
+	}
+	xmlhttp = GetXMLHTTP();
+	URL = weburl+"/d/axaj.php?mod=downvote&n="+nodeid+"&id="+downid+"&poll="+poll;
+	xmlhttp.open("GET",URL);
+	xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	xmlhttp.onreadystatechange = downvote_copycontent;
+	xmlhttp.send(null);
+}
+
+function downvote_copycontent() 
+{
+    var backmsg = "";
+		if ((xmlhttp.readyState == 4) && (xmlhttp.status == 200))
+		{
+		    if(xmlhttp.responseText == "error") {
+		        alert("投票出错!");
+				return false;
+			}else if(xmlhttp.responseText == ""){
+		        alert("没有取得需要的数据,请与管理员联系!");
+				return false;
+		    }else{
+				backmsg = xmlhttp.responseText;
+			}
+			if (backmsg == "1")
+			{
+				if (document.getElementById("good_count"))
+				{
+					document.getElementById("good_count").innerHTML = parseInt(document.getElementById("good_count").innerHTML)+1;
+					var good_scale = parseInt(document.getElementById("good_count").innerHTML);
+					var bad_scale  = parseInt(document.getElementById("bad_count").innerHTML);
+					document.getElementById("good_scale").width = good_scale/(good_scale+bad_scale) * 100;
+					document.getElementById("bad_scale").width = bad_scale/(good_scale+bad_scale) * 100;
+				}
+				alert("投票成功!");
+				return true;
+			}else if(backmsg == "2") {
+				if (document.getElementById("bad_count"))
+				{
+					document.getElementById("bad_count").innerHTML = parseInt(document.getElementById("bad_count").innerHTML)+1;
+					var good_scale = parseInt(document.getElementById("good_count").innerHTML);
+					var bad_scale  = parseInt(document.getElementById("bad_count").innerHTML);
+					document.getElementById("good_scale").width = good_scale/(good_scale+bad_scale) * 100;
+					document.getElementById("bad_scale").width = bad_scale/(good_scale+bad_scale) * 100;
+				}
+				alert("投票成功!");
+				return true;
+			}else if(backmsg == "3") {
+			    alert("您己经投过票了!");
+			}
+			delete(xmlhttp);
+		}
+}
+
+function getdownvote(nodeid,voteid,weburl)
+{ 
+	if(voteid == "") {
+	    alert("参数有误,投票失败!");
+		return false
+	}
+	xmlhttp = GetXMLHTTP();
+	URL = weburl+"/d/axaj.php?mod=getdownvote&n="+nodeid+"&id="+voteid;
+	xmlhttp.open("GET",URL);
+	xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	xmlhttp.onreadystatechange = getdownvote_set;
+	xmlhttp.send(null);
+}
+
+function getdownvote_set() 
+{
+		if ((xmlhttp.readyState == 4) && (xmlhttp.status == 200))
+		{
+		    if(xmlhttp.responseText == "error") {
+		        alert("获取投票信息出错!");
+				return false;
+			}else if(xmlhttp.responseText == ""){
+		        alert("没有取得需要的数据,请与管理员联系!");
+				return false;
+		    }else{
+				//var backmsg = "";
+				var backmsg = eval('(' + xmlhttp.responseText + ')');
+				//var backmsg = xmlhttp.responseText;
+
+			}
+			if (backmsg.good)
+			{
+				document.getElementById("good_count").innerHTML = backmsg.good;
+				document.getElementById("good_scale").width = backmsg.good_scale;
+			}
+			if (backmsg.bad)
+			{
+				document.getElementById("bad_count").innerHTML = backmsg.bad;
+				document.getElementById("bad_scale").width = backmsg.bad_scale;
+			}
+			delete(xmlhttp);
+		}
+}
